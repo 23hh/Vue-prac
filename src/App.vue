@@ -4,12 +4,13 @@
       <li @click="step = 0">Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li @click="step++">Next</li>
+      <li v-if="step == 1" @click="step++">Next</li>
+      <li v-if="step == 2" @click="publish">acount</li>
     </ul>
     <img src="./assets/logo.png" class="logo" alt="logo" />
   </div>
 
-  <Container :img="img" :step="step" :data="data" />
+  <Container @write="myContent = $event" :img="img" :step="step" :data="data" />
   <button @click="more">More</button>
 
   <div class="footer">
@@ -18,13 +19,6 @@
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
-
-  <!-- <div v-if="step == 0">내용0</div>
-  <div v-if="step == 1">내용1</div>
-  <div v-if="step == 2">내용2</div>
-  <button @click="step = 0">버튼0</button>
-  <button @click="step = 1">버튼1</button>
-  <button @click="step = 2">버튼2</button> -->
 </template>
 
 <script>
@@ -40,12 +34,27 @@ export default {
       moreData : 0,
       step: 0,
       img : "",
+      myContent : ""
     }
   },
   components: {
     Container,
   },
   methods : {
+    publish() {
+      let myContent = {
+        name: "Kim Hyun",
+        userImage: "https://picsum.photos/100?random=1",
+        postImage: this.img,
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: this.myContent,
+        filter: "perpetua",
+      };
+      this.data.unshift(myContent);
+      this.step = 0;
+    },
     more() {
       axios.get(`https://codingapple1.github.io/vue/more${this.moreData}.json`)
       .then(res => {
