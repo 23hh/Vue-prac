@@ -6,10 +6,11 @@
     <ul class="hearder-button-right">
       <li>Next</li>
     </ul>
-    <img src="" class="logo">
+    <img src="./assets/logo.png" class="logo" alt="logo" />
   </div>
 
   <Container :data="data" />
+  <button @click="more">More</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
@@ -17,23 +18,44 @@
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
+
+  <!-- <div v-if="step == 0">내용0</div>
+  <div v-if="step == 1">내용1</div>
+  <div v-if="step == 2">내용2</div>
+  <button @click="step = 0">버튼0</button>
+  <button @click="step = 1">버튼1</button>
+  <button @click="step = 2">버튼2</button> -->
 </template>
 
 <script>
 import Container from "./components/GramContainer.vue";
 import data from "../data.js";
+import axios from "axios";
 
 export default {
   name: 'App',
   data() {
     return {
-      data
+      data,
+      moreData : 0,
+      step: 0,
     }
   },
   components: {
     Container,
+  },
+  methods : {
+    more() {
+      axios.get(`https://codingapple1.github.io/vue/more${this.moreData}.json`)
+      .then(res => {
+        console.log(res.data);
+          this.data.push(res.data);
+          this.moreData++;
+      });
+    }
   }
 }
+
 </script>
 
 <style>
@@ -104,7 +126,9 @@ ul {
 }
 #app {
   box-sizing: border-box;
-  font-family: "consolas";
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
   margin-top: 60px;
   width: 100%;
   max-width: 460px;

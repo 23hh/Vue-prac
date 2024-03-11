@@ -1,19 +1,20 @@
 <template>
   <div class="post">
     <div class="post-hearder">
-      <div class="profile"></div>
-      <span class="profile-name">{{ data }}</span>
+      <div class="profile"> </div>
+      <span class="profile-name">{{ data?.name }}</span>
     </div>
-    <div class="post-body"></div>
+    <div class="post-body" :style="{ backgroundImage : `url(${data?.postImage})` }"></div>
     <div class="post-content">
-      <p>43 Likes</p>
-      <p><strong>ID</strong> contest </p>
-      <p class="date">May 15</p>
+      <p> {{ data?.likes }} Likes</p>
+      <p><strong> {{ data?.name }}</strong> {{ data?.content }} </p>
+      <p class="date"> {{ data?.date }}</p>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   props: {
     data: {
@@ -29,7 +30,7 @@ export default {
   width: 100%;
 }
 .profile {
-  background-image: url("https://placeimg.com/100/100/arch");
+  background-image: url("https://picsum.photos/100?random=1");
   width: 30px;
   height: 30px;
   background-size: 100%;
@@ -48,7 +49,7 @@ export default {
   padding: 10px;
 }
 .post-body {
-  background-image: url("https://placeimg.com/640/480/animals");
+  background-image: url("https://picsum.photos/600?random=1");
   height: 450px;
   background-position: center;
   background-size: cover;
@@ -62,5 +63,5 @@ export default {
   font-size: 11px;
   color: grey;
   margin-top: -8px;
-} 
+}
 </style>
