@@ -1,20 +1,20 @@
 <template>
-  <div class="hearder">
-    <ul class="hearder-button-left">
-      <li>Cancel</li>
+  <div class="header">
+    <ul class="header-button-left">
+      <li @click="step = 0">Cancel</li>
     </ul>
-    <ul class="hearder-button-right">
-      <li>Next</li>
+    <ul class="header-button-right">
+      <li @click="step++">Next</li>
     </ul>
     <img src="./assets/logo.png" class="logo" alt="logo" />
   </div>
 
-  <Container :data="data" />
+  <Container :img="img" :step="step" :data="data" />
   <button @click="more">More</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
+      <input @change="upload" type="file" id="file" class="inputfile" />
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
@@ -39,6 +39,7 @@ export default {
       data,
       moreData : 0,
       step: 0,
+      img : "",
     }
   },
   components: {
@@ -52,6 +53,14 @@ export default {
           this.data.push(res.data);
           this.moreData++;
       });
+    },
+    upload(e){
+      let file = e.target.files
+      console.log(file);
+      let url = URL.createObjectURL(file[0]);
+      console.log(url);
+      this.img = url;
+      this.step++;
     }
   }
 }
@@ -126,9 +135,7 @@ ul {
 }
 #app {
   box-sizing: border-box;
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
-    "Malgun Gothic", sans-serif;
+  font-family: "consolas";
   margin-top: 60px;
   width: 100%;
   max-width: 460px;

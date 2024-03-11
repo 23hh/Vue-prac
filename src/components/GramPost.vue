@@ -1,6 +1,6 @@
 <template>
   <div class="post">
-    <div class="post-hearder">
+    <div class="post-header">
       <div class="profile"> </div>
       <span class="profile-name">{{ data?.name }}</span>
     </div>
