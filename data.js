@@ -1,8 +1,8 @@
 export default [
   {
     name: "Kim Hyun",
-    userImage: "https://picsum.photos/100?random=1",
-    postImage: "https://picsum.photos/600?random=1",
+    userImage: "https://picsum.photos/100?random=5",
+    postImage: "https://picsum.photos/600?random=5",
     likes: 36,
     date: "May 15",
     liked: false,
@@ -11,8 +11,8 @@ export default [
   },
   {
     name: "John Doe",
-    userImage: "https://picsum.photos/100?random=2",
-    postImage: "https://picsum.photos/600?random=2",
+    userImage: "https://picsum.photos/100?random=6",
+    postImage: "https://picsum.photos/600?random=6",
     likes: 20,
     date: "Apr 20",
     liked: false,
@@ -21,8 +21,8 @@ export default [
   },
   {
     name: "Minny",
-    userImage: "https://picsum.photos/100?random=3",
-    postImage: "https://picsum.photos/600?random=3",
+    userImage: "https://picsum.photos/100?random=7",
+    postImage: "https://picsum.photos/600?random=7",
     likes: 49,
     date: "Apr 4",
     liked: false,

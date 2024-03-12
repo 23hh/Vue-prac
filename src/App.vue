@@ -11,8 +11,9 @@
   </div>
 
   <Container @write="myContent = $event" :img="img" :step="step" :data="data" />
-  <button @click="more">More</button>
-
+  <div>
+    <button @click="more">More</button>
+  </div>
   <div class="footer">
     <ul class="footer-button-plus">
       <input @change="upload" type="file" id="file" class="inputfile" />
@@ -77,6 +78,7 @@ export default {
 </script>
 
 <style>
+ 
 body {
   margin: 0;
 }
@@ -153,4 +155,5 @@ ul {
   border-right: 1px solid #eee;
   border-left: 1px solid #eee;
 }
+
 </style>
