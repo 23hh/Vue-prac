@@ -35,8 +35,14 @@ export default {
       moreData : 0,
       step: 0,
       img : "",
-      myContent : ""
+      myContent : "",
+      selectedFilter: "",
     }
+  },
+  mounted() {
+    this.emitter.on('clickFilter', (a) => {
+      this.selectedFilter = a
+    })
   },
   components: {
     Container,
@@ -45,15 +51,16 @@ export default {
     publish() {
       let myContent = {
         name: "Kim Hyun",
-        userImage: "https://picsum.photos/100?random=1",
+        userImage: "https://placeimg.com/100/100/arch",
         postImage: this.img,
         likes: 36,
         date: "May 15",
         liked: false,
         content: this.myContent,
-        filter: "perpetua",
+        filter: this.selectedFilter,
       };
       this.data.unshift(myContent);
+      console.log(myContent);
       this.step = 0;
     },
     more() {
