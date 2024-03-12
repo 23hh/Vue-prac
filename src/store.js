@@ -1,13 +1,23 @@
 import { createStore } from "vuex";
 
-// Create a new store instance.
 const store = createStore({
   state() {
     return {
-      age: 20,
+      likes: 0,
+      CheckLike: false,
     };
   },
-  mutations: {},
+  mutations: {
+    incrementLikes(state) {
+      if (state.CheckLike == false) {
+        state.likes++;
+        state.CheckLike = true;
+      } else {
+        state.likes--;
+        state.CheckLike = false;
+      }
+    },
+  },
 });
 
 export default store;
