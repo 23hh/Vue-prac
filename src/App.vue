@@ -12,6 +12,10 @@
 
   <Container @write="myContent = $event" :img="img" :step="step" :data="data" />
   <div>
+    <p> {{ $store.state.more }} </p>
+    <button @click="$store.dispatch('getData')"> More </button>
+  </div>
+  <div>
     <button @click="more">More</button>
   </div>
   <div class="footer">
@@ -20,6 +24,7 @@
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
+
 </template>
 
 <script>
