@@ -16,15 +16,20 @@
     <div v-if="step === 2">
       <div :class="selectedFilter" class="upload-image" :style="{ backgroundImage : `url(${img})` }"></div>
       <div class="write">
-        <textarea @input="$emit('write', $event.target.value)" class="write-box">write</textarea>
+        <textarea @input="$emit('write', $event.target.value)" class="write-box">write!!</textarea>
       </div>
     </div>
+  </div>
+
+  <div v-if="step == 3">
+    <MyPage/>
   </div>
 </template>
 
 <script>
 import Post from './GramPost.vue'
 import FiterBox from './GramFilterBox.vue'
+import MyPage from './GramMyPage.vue'
 
 export default {
   data() {
@@ -57,6 +62,7 @@ export default {
   components: {
     Post,
     FiterBox,
+    MyPage,
   }
   
 }

@@ -11,10 +11,10 @@
   </div>
 
   <Container @write="myContent = $event" :img="img" :step="step" :data="data" />
-  <div>
+  <!-- <div>
     <p> {{ $store.state.more }} </p>
     <button @click="$store.dispatch('getData')"> More </button>
-  </div>
+  </div> -->
   <div>
     <button @click="more">More</button>
   </div>
